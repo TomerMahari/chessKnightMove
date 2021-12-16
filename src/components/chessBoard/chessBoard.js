@@ -97,7 +97,6 @@ export class ChessBoard extends Component {
         this.setState({stepsHistory: this.state.stepsHistory+ w+h + '; '});
     }
     changePosition = (prevX,prevY, newX,newY) => {
-        debugger;
         let styleSheet = document.styleSheets[0];
      
         let animationName = `animation${Math.round(Math.random() * 100)}`;
@@ -118,7 +117,7 @@ export class ChessBoard extends Component {
 
         var chessBoardElem = document.getElementsByClassName('ChessBoard');
         var divX = document.createElement('div');
-        divX.className = 'red-marker';                
+        divX.className = 'red-marker';    
         if(newX > prevX){
             divX.style.cssText = 'position:absolute;top:'+(prevX + 30) + 'px; height:' + (newX - prevX) + 'px;left:'+(prevY + 28)+'px;width: 2px;';
         }else{
@@ -176,9 +175,9 @@ export class ChessBoard extends Component {
         </div>
         {this.state.steps > -1? <div className='steps-counter'> 
                 {this.state.gameEnded? <button onClick={this.restartGame}>Lets play again</button>: '' }
-                <div className='current-step'> Current Step: {this.state.steps}</div>
-                <div className='all-steps'>Steps Sum: {this.state.stepsSum}</div>
-                <div className='steps-history'>Steps History: 
+                <div className='current-step'> <strong> Current Step:</strong> {this.state.steps}</div>
+                <div className='all-steps'><strong>Steps Sum: </strong>{this.state.stepsSum}</div>
+                <div className='steps-history'><strong>Steps History: </strong>
                 <br/>{this.state.stepsHistory}</div>
              </div>:'' }
         </div>
