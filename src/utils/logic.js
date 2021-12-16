@@ -2,6 +2,7 @@
 const maxLimition = 8;
 const minLimition = 0;
 function startTheGame(xy){
+    
     var mainBoard = Array(8).fill(-1).map(row => new Array(8).fill(-1));
     var arr = xy.split(',');
     var x = arr[0]*1,y = arr[1]*1;
