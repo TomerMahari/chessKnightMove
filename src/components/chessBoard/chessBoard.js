@@ -7,7 +7,7 @@ export class ChessBoard extends Component {
 
     constructor(props) {
         super(props);
-        this.board = Array(8).fill(-1).map(row => new Array(8).fill(-1));
+        this.board = Array(8).fill(-1).map(row => new Array(8).fill(-1));        
         this.state = {
         knightX : 0,
         knightY : -50,
@@ -114,21 +114,21 @@ export class ChessBoard extends Component {
         });
       }
     addMarks = (prevX,prevY,newX,newY) => {
-
+        var isMobile = window.innerWidth <= 600;
         var chessBoardElem = document.getElementsByClassName('ChessBoard');
         var divX = document.createElement('div');
         divX.className = 'red-marker';    
         if(newX > prevX){
-            divX.style.cssText = 'position:absolute;top:'+(prevX + 30) + 'px; height:' + (newX - prevX) + 'px;left:'+(prevY + 28)+'px;width: 2px;';
+            divX.style.cssText = 'position:absolute;top:'+(prevX + (isMobile?15 :30)) + 'px; height:' + (newX - prevX) + 'px;left:'+(prevY + (isMobile? 8 : 28))+'px;width: 2px;';
         }else{
-            divX.style.cssText = 'position:absolute;top:'+(newX + 30) + 'px; height:' + ( prevX-newX) + 'px;left:'+(prevY + 28)+'px; width: 2px;';
+            divX.style.cssText = 'position:absolute;top:'+(newX + (isMobile?15 :30)) + 'px; height:' + ( prevX-newX) + 'px;left:'+(prevY + (isMobile? 8 : 28))+'px; width: 2px;';
         }
         var divY = document.createElement('div');
         divY.className = 'red-marker';                
         if(newY > prevY){
-            divY.style.cssText = 'position:absolute;top:'+(newX + 30) + 'px; height:2px;left:'+(prevY + 28)+'px; width:' + (newY - prevY)+'px;' ;
+            divY.style.cssText = 'position:absolute;top:'+(newX + (isMobile?15 :30)) + 'px; height:2px;left:'+(prevY + (isMobile? 8 : 28))+'px; width:' + (newY - prevY)+'px;' ;
         }else{
-            divY.style.cssText = 'position:absolute;top:'+(newX + 30) + 'px; height:2px;left:'+(newY + 28)+'px; width:' + (prevY - newY)+'px;' ;
+            divY.style.cssText = 'position:absolute;top:'+(newX + (isMobile?15 :30)) + 'px; height:2px;left:'+(newY + (isMobile? 8 : 28))+'px; width:' + (prevY - newY)+'px;' ;
         }
         chessBoardElem[0].appendChild(divX);
         chessBoardElem[0].appendChild(divY);

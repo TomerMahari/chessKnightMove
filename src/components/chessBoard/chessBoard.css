@@ -17,6 +17,7 @@
     border: 1px solid black;
     display: inline-block;
 }
+
 .brown-column{
     background-color: #b97a57;
 }
@@ -45,4 +46,34 @@ button{
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+}
+
+@media screen and (max-width: 600px) {
+    .ChessBoard {
+        width: 100%;
+        height: 450px;
+        margin-top: 0;
+        position: absolute;
+        margin-left: unset; 
+        left: unset;
+    }
+    .row {
+        width: 100%;
+        height: 2em;
+    }
+    .column {
+        height: 2em;
+        width: 2em;
+        border: 1px solid black;
+        display: inline-block;
+    }
+    .knight-container{
+        left: unset;
+    }
+    button{
+        left: 1.2em;
+        top: 22em;
+        font-size: 12px;
+        padding: 4px 10px;        
+    }
 }
